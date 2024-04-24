@@ -24,12 +24,10 @@ onMounted(() => {
 </script>
 
 <template>
-    <div>
-        {{ containerHeight/2 + " " +  containerWidth/2}}
-    </div>
   <Application v-if="containerHeight"  ref="appl" style="margin-top: 1vh;" :width="containerWidth" :height="containerHeight">
-    <text :anchor="10" :x="30" :y="30" :style="{ fill: 'white'}">
+    <text :anchor="10" x="30" y="30" :style="{ fill: 'white'}">
       Hello NuxtJS World
     </text>
+    <CharacterSprite/>
   </Application>
 </template>

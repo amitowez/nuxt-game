@@ -1,0 +1,20 @@
+{"frames": {
+
+"1626220511_5-kartinkin-com-p-personazhi-v-stile-piksel-art-art-krasivo-5.png":
+{
+	"frame": {"x":0,"y":0,"w":935,"h":1133},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":935,"h":1133},
+	"sourceSize": {"w":935,"h":1133}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "character.png",
+	"format": "RGBA8888",
+	"size": {"w":935,"h":1133},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:e355a1083f1a6135852c4f54750874fd:828593f43f98d907a6f268b6dc41eab3:42e475aa4a03af306bdc7acb5ff91d19$"
+}
+}

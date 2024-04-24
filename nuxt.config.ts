@@ -16,7 +16,6 @@ export default defineNuxtConfig({
   pinia: {
     storesDirs: ["./store/**"]
   },
-   vite: false,
   vite: {
     css: {
       preprocessorOptions: {
