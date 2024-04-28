@@ -3,7 +3,7 @@ import { reactive } from 'vue'
 import { Loader } from 'vue3-pixi'
 import {moveEvent} from "./moveFunctions/setPositionAndChangeAnim"
 
-
+const keysMap = {37: 'left', 38: 'top', 39: 'right', 40: 'down'};
 const resource = reactive({
   spritesheet: void 0,
   animation: void 0
@@ -11,15 +11,27 @@ const resource = reactive({
 
 const animPosition = reactive({
     top: 120,
-    left: 120
+    left: 120,
+    rotate: 0,
+    skewX: 0
 })
+let activeAnim = ref({})
 window.addEventListener('keydown', event => {
-    const keysMap = {37: 'left', 38: 'top', 39: 'right', 40: 'down'};
-    console.log(resource)
     if(keysMap[event.keyCode]) {
         // console.log(`Нажата клавиша ${keysMap[event.keyCode]}. Отлично!`);
-        moveEvent(animPosition, resource.animation, resource.spritesheet.animations, keysMap[event.keyCode])
-        // resource.animation = resource.spritesheet.animations['adventurer-idle']
+        moveEvent(animPosition, activeAnim, resource.spritesheet.animations, keysMap[event.keyCode])
+        console.log(activeAnim.value)
+        resource.animation = activeAnim.value
+    }
+});
+window.addEventListener('keyup', event => {
+    if(keysMap[event.keyCode]) {
+        resource.animation = resource.spritesheet.animations["adventurer-idle"]
+        if(keysMap[event.keyCode] === 'right'){
+          animPosition.rotate = 0
+          animPosition.skewX = 0
+        }
+
     }
 });
 function onResolved(sheet) {
@@ -28,12 +40,6 @@ function onResolved(sheet) {
   resource.animation = sheet.animations["adventurer-idle"];
 }
 
-
-function onChangeAnimation() {
-  // const keys = Object.keys(resource.spritesheet.animations);
-  // const randomIndex = Math.floor(Math.random() * keys.length);
-  resource.animation =  resource.animation
-}
 </script>
 
 <template>
@@ -49,7 +55,10 @@ function onChangeAnimation() {
       :x="animPosition.left"
       :y="animPosition.top"
       :scale="1.4"
-      @loop="onChangeAnimation"
+      :rotation="animPosition.rotate"
+      :skew-x="animPosition.skewX"
+
+      :loop="true"
     />
   </Loader>
 </template>
