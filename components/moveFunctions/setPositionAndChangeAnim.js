@@ -1,23 +1,29 @@
-export function moveEvent(pos, activeAnim, anims, key){
+export function moveEvent(pos, activeAnim, anims, key, height, width){
     switch(key) {
         case 'top':
             if(pos.top - 15 > 0)  pos.top -= 15
-          break
+            activeAnim.value = anims['adventurer-run']
+        break
         case 'down':
-            pos.top +=  15
-          break
+          if(pos.top + 30 < height)  pos.top +=  15
+          activeAnim.value = anims['adventurer-run']
+        break
         case 'left':
             if(pos.left - 15 > 0)  pos.left -=   15
             pos.rotate = 110
             pos.skewX = 3.2
+            activeAnim.value = anims['adventurer-run']
           break
         case 'right':
-            pos.left +=  15
+            if(pos.left + 30 < width) pos.left +=  15
             pos.rotate = 0
             pos.skewX = 0
-          break
+            activeAnim.value = anims['adventurer-run']
+        break
+        case 'space':
+            activeAnim.value = anims['adventurer-attack3']
+        break
       }
-      console.log('adventurer-run',anims['adventurer-run'])
-      activeAnim.value = anims['adventurer-run']
+     
 }
 

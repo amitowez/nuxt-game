@@ -1,33 +1,44 @@
 <script setup>
-import { onMounted } from "vue";
 import { Application } from "vue3-pixi";
-let containerHeight;
-let containerWidth;
-let appl;
+const gameParam = useGameHooks()
+const knifes = ref([])
 
-onMounted(() => {
-    containerHeight =  ref(Math.round((window.innerHeight / 100) * 89))
-    containerWidth = ref(Math.round((window.innerWidth / 100) * 99))
-    console.log('init', containerHeight.value,containerWidth.value)
-    function resize(){
-        containerHeight.value = Math.round((window.innerHeight / 100) * 89)
-        containerWidth.value = Math.round((window.innerWidth / 100) * 99)
-        console.log('resize', containerHeight.value,containerWidth.value)
-    }
+function addKnife(param){
+  console.log(param)
+  knifes.value.push({
+    id: +new Date(),
+    top: param.top,
+    left: param.left,
+    contHeight: gameParam.containerHeight.value,
+    contWidth: gameParam.containerWidth.value,
+    skewX: param.skewX,
+  })
+}
+function clearKnife(id){
+  console.log('clear', id)
+  knifes.value = knifes.value.filter(item => item.id != id)
 
-    appl  = ref()
-    console.log(appl)
-    window.onresize = resize;
-})
-
-
+}
 </script>
 
 <template>
-  <Application v-if="containerHeight"  ref="appl" style="margin-top: 1vh;" :width="containerWidth" :height="containerHeight">
-    <text :anchor="10" x="30" y="30" :style="{ fill: 'white'}">
-      Hello NuxtJS World
-    </text>
-    <CharacterSprite/>
+  <Application 
+    v-if="gameParam.containerHeight.value" 
+    style="margin-top: 1vh;" 
+    :width="gameParam.containerWidth.value" 
+    :height="gameParam.containerHeight.value"
+    >
+    <CharacterSprite 
+      :canvasHeight="gameParam.containerHeight.value" 
+      :canvasWidth="gameParam.containerWidth.value"
+      @create-knife="(param)=>addKnife(param)" 
+      />
+    <template v-for="knife in knifes" :key="knife.id" >
+      <KnifeSprite 
+        v-if="knife"
+        :knife="knife" 
+        @clear-knife="clearKnife(knife.id)" />
+    </template>
+
   </Application>
 </template>
