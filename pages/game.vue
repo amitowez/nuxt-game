@@ -28,6 +28,18 @@ function clearKnife(id){
     :width="gameParam.containerWidth.value" 
     :height="gameParam.containerHeight.value"
     >
+    <text :x="0" :y="0" :style="{
+      fontFamily: 'Arial',
+      fontSize: 36,
+      fontStyle: 'italic',
+      fontWeight: 'bold',
+      fill: ['#ffffff'], // gradient
+      stroke: '#4a1850',
+      strokeThickness: 5,
+ 
+      }">
+      Basic text in pixi
+    </text>
     <CharacterSprite 
       :canvasHeight="gameParam.containerHeight.value" 
       :canvasWidth="gameParam.containerWidth.value"
@@ -36,8 +48,7 @@ function clearKnife(id){
     <template v-for="knife in knifes" :key="knife.id" >
       <KnifeSprite 
         v-if="knife"
-        :knife="knife" 
-        @clear-knife="clearKnife(knife.id)" />
+        :knife="knife"/>
     </template>
 
   </Application>

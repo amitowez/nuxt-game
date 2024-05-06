@@ -2,26 +2,22 @@
 const props = defineProps({
     knife: Object
 });
-const emit = defineEmits(['clear-knife'])
 const top = ref(props.knife.top)
 const left = ref(props.knife.left)
-const show = ref(true)
 onMounted(()=>{
    const  interval =  setInterval(()=>{
-        console.log(props.knife.id)
+        // console.log(props.knife.id)
         if(props.knife.skewX === 0){
-           if(left.value + 40 <= props.knife.contWidth){
+           if(left.value + 40 <= props.knife.contWidth+60){
                 changeKnifePosition(30)
             } else {
                 clearInterval(interval)
-                show.value = false
             }
         } else {
-            if(left.value - 40 >= 0){
+            if(left.value - 40 >= -60){
                 changeKnifePosition(-30)
             } else { 
                 clearInterval(interval)
-                show.value = false
             }
         }
     }, 200)
@@ -37,7 +33,6 @@ console.log(props.knife)
 
 <template>
     <sprite
-        v-if="show"
         texture="/img/knife.png"
         :anchor="0.5" 
         :scale="0.05"
