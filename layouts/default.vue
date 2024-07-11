@@ -10,8 +10,6 @@
 </script>
 
 <style lang="scss" scoped>
-.program-container{
-    height: 100vh;
-    width: 99vw;
-}
+// @import '@/assets/style/style.scss';
+
 </style>

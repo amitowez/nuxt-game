@@ -5,7 +5,7 @@
   </NuxtLayout>
 </template>
 <script setup>
-  const layout = 'globalLayout'
+  const layout = 'default'
   const router = useRouter()
-  router.push("/game")
+  router.push("/instruction")
 </script>

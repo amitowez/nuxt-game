@@ -1,8 +1,24 @@
 @import './vars.scss';
+p{
+    margin: 0;
+}
+.header{
+    width: 99vw;
+    height: 7vh;
+    border: $border;
+    border-radius: $border-radius-big;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
 .centried{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.program-container{
+    height: 98vh;
+    width: 98vw;
 }
 .programm-btn{
     box-sizing: border-box;
@@ -21,4 +37,30 @@
         background-color: $btn-color-active;
         color: $text-color-active;
     }
+}
+
+.game-control-container{
+    display: flex;
+    width: 26vw; 
+    align-items: flex-end;
+}
+
+.game-control-move{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.instruction-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.instruction-description{
+    color: $btn-color;
+}
+
+.instruction-text{
+    color: $btn-color;
 }

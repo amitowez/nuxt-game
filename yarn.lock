@@ -5929,10 +5929,10 @@ vue3-pixi-nuxt@^0.9.1:
     vue-demi "^0.14.1"
     vue3-pixi "^0.8.5"
 
-vue3-pixi@^0.9.1:
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/vue3-pixi/-/vue3-pixi-0.9.1.tgz#88cdb00bfc7736317f36a081fea90e299d1d83f7"
-  integrity sha512-9qqJvSmtAGnuDZBeafV3G7t/GKtrfEVGrt+WH1Ltc6BEPM2s+lRt/IykCYRt5BJpulxlsaNBlgMFPc/S1oBC0g==
+vue3-pixi@^0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/vue3-pixi/-/vue3-pixi-0.8.5.tgz#72386489afcb09a106867c5351687c9c52487051"
+  integrity sha512-rL6hbCtQiZH+/N9bNi9Uk5ivE+6m79ZBTC3NET9Oe8SzK7iWUdgLTJgm6p1cDSsWPdfhmCVmzR2b8OW4RIV+2g==
   dependencies:
     "@antfu/utils" "^0.7.2"
     "@vueuse/core" "^10.1.2"

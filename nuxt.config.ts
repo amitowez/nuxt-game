@@ -3,13 +3,13 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules:[
     "@pinia/nuxt",
-    "vue3-pixi-nuxt"
+    //"vue3-pixi-nuxt"
   ],
   // imports: {
   //   presets: [
   //     {
   //       from: 'vue3-pixi',
-  //       imports: ["Application"]
+  //       imports: ["Application","Loader"]
   //     }
   //   ]
   // },

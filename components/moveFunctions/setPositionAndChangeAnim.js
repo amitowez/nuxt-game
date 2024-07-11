@@ -1,6 +1,6 @@
 export function moveEvent(pos, activeAnim, anims, key, height, width){
     switch(key) {
-        case 'top':
+        case 'up':
             if(pos.top - 15 > 0)  pos.top -= 15
             activeAnim.value = anims['adventurer-run']
         break
